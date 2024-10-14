@@ -1,10 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';  // Import FontAwesome
+import { faFilm, faCartPlus, faInfoCircle, faHome } from '@fortawesome/free-solid-svg-icons';  // Import icons
 import StreamList from './components/StreamList';
 import Movies from './components/Movies';
 import Cart from './components/Cart';
 import About from './components/About';
-import './App.css'; // Import your styles
+import './App.css';
 
 function App() {
   return (
@@ -12,14 +14,13 @@ function App() {
       <div>
         <nav>
           <ul>
-            <li><Link to="/">StreamList</Link></li>
-            <li><Link to="/movies">Movies</Link></li>
-            <li><Link to="/cart">Cart</Link></li>
-            <li><Link to="/about">About</Link></li>
+            <li><Link to="/"><FontAwesomeIcon icon={faHome} /> StreamList</Link></li>
+            <li><Link to="/movies"><FontAwesomeIcon icon={faFilm} /> Movies</Link></li>
+            <li><Link to="/cart"><FontAwesomeIcon icon={faCartPlus} /> Cart</Link></li>
+            <li><Link to="/about"><FontAwesomeIcon icon={faInfoCircle} /> About</Link></li>
           </ul>
         </nav>
 
-        {/* Define your routes using Routes instead of Switch */}
         <Routes>
           <Route path="/" element={<StreamList />} />
           <Route path="/movies" element={<Movies />} />
